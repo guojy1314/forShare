@@ -78,14 +78,17 @@ WSGI_APPLICATION = 'forShare.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'STW',
+        'NAME': 'Share',
         'USER': 'root',
         'PASSWORD': '19940319',
         'HOST': '62.234.190.102',
         'PORT': '3306',
+        'OPTIONS': {
+            "init_command": "SET default_storage_engine='INNODB'"
+        }
     }
 }
-
+DATABASES['default']['OPTIONS']['init_command'] = "SET sql_mode='STRICT_TRANS_TABLES'"
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

@@ -11,7 +11,7 @@
     <schema id="2" parent="1" name="Letcode">
       <Collation>utf8_unicode_ci</Collation>
     </schema>
-    <schema id="3" parent="1" name="STW">
+    <schema id="3" parent="1" name="Share">
       <Current>1</Current>
       <Visible>1</Visible>
       <Collation>utf8_general_ci</Collation>
@@ -915,13 +915,13 @@ permission_id</ColNames>
     </key>
     <foreign-key id="233" parent="211" name="auth_group_permissions_group_id_b120cbf9_fk_auth_group_id">
       <ColNames>group_id</ColNames>
-      <RefSchemaName>STW</RefSchemaName>
+      <RefSchemaName>Share</RefSchemaName>
       <RefTableName>auth_group</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <foreign-key id="234" parent="211" name="auth_group_permissio_permission_id_84c5c92e_fk_auth_perm">
       <ColNames>permission_id</ColNames>
-      <RefSchemaName>STW</RefSchemaName>
+      <RefSchemaName>Share</RefSchemaName>
       <RefTableName>auth_permission</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
@@ -968,7 +968,7 @@ codename</ColNames>
     </key>
     <foreign-key id="242" parent="212" name="auth_permission_content_type_id_2f476e4b_fk_django_co">
       <ColNames>content_type_id</ColNames>
-      <RefSchemaName>STW</RefSchemaName>
+      <RefSchemaName>Share</RefSchemaName>
       <RefTableName>django_content_type</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
@@ -1093,13 +1093,13 @@ group_id</ColNames>
     </key>
     <foreign-key id="264" parent="214" name="auth_user_groups_user_id_6a12ed8b_fk_auth_user_id">
       <ColNames>user_id</ColNames>
-      <RefSchemaName>STW</RefSchemaName>
+      <RefSchemaName>Share</RefSchemaName>
       <RefTableName>auth_user</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <foreign-key id="265" parent="214" name="auth_user_groups_group_id_97559544_fk_auth_group_id">
       <ColNames>group_id</ColNames>
-      <RefSchemaName>STW</RefSchemaName>
+      <RefSchemaName>Share</RefSchemaName>
       <RefTableName>auth_group</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
@@ -1144,13 +1144,13 @@ permission_id</ColNames>
     </key>
     <foreign-key id="273" parent="215" name="auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id">
       <ColNames>user_id</ColNames>
-      <RefSchemaName>STW</RefSchemaName>
+      <RefSchemaName>Share</RefSchemaName>
       <RefTableName>auth_user</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <foreign-key id="274" parent="215" name="auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm">
       <ColNames>permission_id</ColNames>
-      <RefSchemaName>STW</RefSchemaName>
+      <RefSchemaName>Share</RefSchemaName>
       <RefTableName>auth_permission</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
@@ -1216,13 +1216,13 @@ permission_id</ColNames>
     </key>
     <foreign-key id="286" parent="216" name="django_admin_log_content_type_id_c4bce8eb_fk_django_co">
       <ColNames>content_type_id</ColNames>
-      <RefSchemaName>STW</RefSchemaName>
+      <RefSchemaName>Share</RefSchemaName>
       <RefTableName>django_content_type</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <foreign-key id="287" parent="216" name="django_admin_log_user_id_c564eba6_fk_auth_user_id">
       <ColNames>user_id</ColNames>
-      <RefSchemaName>STW</RefSchemaName>
+      <RefSchemaName>Share</RefSchemaName>
       <RefTableName>auth_user</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
@@ -1320,58 +1320,74 @@ model</ColNames>
     </key>
     <column id="304" parent="220" name="id">
       <Position>1</Position>
-      <Comment>用户id，自增</Comment>
-      <DataType>int(11) unsigned|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="305" parent="220" name="username">
       <Position>2</Position>
-      <Comment>用户登录名</Comment>
       <DataType>varchar(150)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="306" parent="220" name="password">
       <Position>3</Position>
-      <Comment>用户密码</Comment>
-      <DataType>varchar(128)|0s</DataType>
+      <DataType>varchar(256)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="307" parent="220" name="email">
       <Position>4</Position>
-      <Comment>用户邮箱</Comment>
-      <DataType>varchar(100)|0s</DataType>
+      <DataType>varchar(254)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="308" parent="220" name="phone">
       <Position>5</Position>
-      <Comment>用户手机号</Comment>
       <DataType>varchar(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="309" parent="220" name="wechatOpenid">
+    <column id="309" parent="220" name="sex">
       <Position>6</Position>
-      <Comment>用户微信openid</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="310" parent="220" name="wxOpenid">
+      <Position>7</Position>
       <DataType>varchar(25)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="310" parent="220" name="create_time">
-      <Position>7</Position>
-      <Comment>创建时间</Comment>
-      <DataType>timestamp|0s</DataType>
+    <column id="311" parent="220" name="create_time">
+      <Position>8</Position>
+      <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="311" parent="220" name="PRIMARY">
+    <index id="312" parent="220" name="username">
+      <ColNames>username</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="313" parent="220" name="email">
+      <ColNames>email</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="314" parent="220" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
+    </key>
+    <key id="315" parent="220" name="username">
+      <ColNames>username</ColNames>
+      <UnderlyingIndexName>username</UnderlyingIndexName>
+    </key>
+    <key id="316" parent="220" name="email">
+      <ColNames>email</ColNames>
+      <UnderlyingIndexName>email</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>
