@@ -15,7 +15,7 @@ class User(models.Model):
     phone = models.CharField(max_length=11)
     sex = models.CharField(max_length=32, choices=gender, default='男')
     wxopenid = models.CharField(db_column='wxOpenid', max_length=25, blank=True, null=True)
-    create_time = models.DateTimeField()
+    create_time = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = True
